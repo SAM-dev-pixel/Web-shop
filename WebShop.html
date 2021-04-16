@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+   
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      nav {
+        height: 10vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .title {
+        flex: 1.5;
+        padding-left: 10%;
+      }
+      .title h2 {
+        font-weight: 400;
+        color: #333;
+      }
+      .nav-links {
+        flex: 1;
+        padding-right: 10%;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .nav-links li a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #999;
+        padding: 1px 2px;
+        transition: .3s;
+      }
+      .nav-links li a:hover {
+        color: #333;
+        border: 1px solid #333;
+        border-radius: 2px;
+      }
+      .home-page {
+        display: flex;
+        padding: 7% 10%;
+      }
+      .img-banner {
+        flex: 1.5;
+        position: relative;
+      }
+      .img-banner img {
+        height: 300px;
+        transition: all .6s ease-in-out;
+        pointer-events: all;
+      }
+      /*.img-banner img:hover {
+        transform: scale(1.1);
+        transition: all .6s ease-out;
+      }*/
+      .img-banner img.zoom {
+        transform: scale(1.1);
+      }
+      .img-banner .inform {
+        font-size: 12px;
+        color: #aaa;
+        position: absolute;
+        letter-spacing: 1px;
+      }
+      .img-banner .inform.one {
+        top: 8%;
+        left: 30%;
+      }
+      .img-banner .inform.two {
+        bottom: 15%;
+        left: 45%;
+      }
+      .content {
+        flex: 1;
+      }
+      .content h4 {
+        font-size: 16px;
+        color: #666;
+      }
+      .content p {
+        font-size: 2.5rem;
+        font-family: 'Montserrat-thin-italic', sans-serif;
+        color: #999;
+        font-weight: 300;
+      }
+      .content p strong {
+        font-family: 'Montserrat', sans-serif;
+        color: #333;
+        font-size: 2.3rem;
+      }
+      .content a {
+        text-decoration: none;
+        padding: 7px 8px;
+        margin-top: 15px;
+        margin-bottom: 45px;
+        display: inline-block;
+      }
+      .btn-buy {
+        font-family: 'Montserrat', sans-serif;
+        text-transform:uppercase;
+       background-color: #333;
+       color: #fff;
+       font-size: .8rem;
+       border-radius: 5px;
+      }
+      .btn-buy.click {
+        background: none;
+        border: 1px solid #333;
+        color: #333;
+        transition: .3s;
+        
+      }
+      .btn-add {
+        color: #888;
+        font-size: 12px;
+      }
+      .btn-add.click {
+        border: 1px solid #888;
+        border-radius: 6px;
+       transition: .3s;
+      }
+      .content .caption {
+        padding-top: 10px;
+        font-size: 13px;
+        font-style: italic;
+        color: #444;
+      }
+      .content .read {
+        padding: 0;
+        font-size: 9px;
+        color: #888;
+      }
+      
+      /* RESPONSIVE */
+      
+      @media (max-width: 768px) {
+        nav {
+        position: relative;
+        align-items: flex-start;
+        }
+        .hamburger {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        cursor: pointer;
+        z-index: 1;
+        }
+        .line{
+        width: 26px;
+        height: 3px;
+        background-color: #333;
+        margin: 4px;
+        }
+        .nav-links {
+        position: fixed;
+        background-color: #fff;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        clip-path: circle(100px at 100%-40%);
+        -webkit-clip-path: circle(100px at 100%-40%);
+        transition: all .5s ease-in-out;
+        }
+        .nav-links.open {
+        clip-path: circle(1500px at 100%-40%);
+        -webkit-clip-path: circle(1500px at 100%-40%);
+        }
+        .img-banner {
+          z-index: -1;
+        }
+        .img-banner .inform.one {
+        top: 8%;
+        left: 40%;
+      }
+      .img-banner .inform.two {
+        bottom: 15%;
+        left: 50%;
+      }
+        }
+        @media (max-width: 360px) {
+          .img-banner {
+            display: none;
+          }
+        }
+        
+      
+    </style>
+</head>
+
+<body>
+  
+  <div class="container">
+    
+    <nav>
+      <div class="title">
+        <h2>So.</h2>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Featured</a></li>
+        <li><a href="#">Promotion</a></li>
+        <li><a href="#">Sales</a></li>
+        <li><a href="#">My Cart(0)</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+    <div class="home-page">
+      <div class="img-banner">
+        <img src="chair2.png"></img>
+        <p class="inform one">new material of<br> design from<br> the designer</p>
+        <p class="inform two">new material of<br> design from<br> the designer</p>
+      </div>
+      
+      <div class="content">
+        <h4>Product Featured</h4>
+        <p><strong>Comfortable</strong><br> is our priority</p>
+        <a href="#" class="btn-buy">Buy Now</a>
+        <a href="#" class="btn-add">Add to Wishlist</a>
+        <h4>our testimonial</h4>
+        <p class="caption">I love this product so much because I can spend a lot of time by sitting and read a kind of book that I like</p>
+        <a href="#" class="read">Read All Review</a>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <script>
+  
+  const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  
+  const chairImg = document.querySelector('.img-banner img');
+  chairImg.addEventListener('mouseenter', () => {
+    chairImg.classList.add('zoom');
+  });
+  chairImg.addEventListener('mouseleave', () => {
+    chairImg.classList.remove('zoom');
+  });
+  
+  const buyButton = document.querySelector('.btn-buy');
+  buyButton.addEventListener('click', () => {
+    buyButton.classList.add('click');
+  });
+  
+  const addButton = document.querySelector('.btn-add');
+  addButton.addEventListener('click', () => {
+  addButton.classList.add('click');
+  });
+  
+    
+  </script>
+
+</body>
+
+</html>
